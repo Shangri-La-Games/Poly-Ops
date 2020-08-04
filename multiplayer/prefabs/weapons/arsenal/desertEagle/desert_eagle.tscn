@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://multiplayer/prefabs/weapons/arsenal/desertEagle/models/desert_eagle.glb" type="PackedScene" id=1]
+[ext_resource path="res://multiplayer/prefabs/weapons/arsenal/desertEagle/audio/reload.ogg" type="AudioStream" id=2]
+[ext_resource path="res://multiplayer/prefabs/weapons/arsenal/desertEagle/audio/shoot.ogg" type="AudioStream" id=3]
+[ext_resource path="res://multiplayer/prefabs/weapons/arsenal/desertEagle/audio/out.ogg" type="AudioStream" id=4]
+[ext_resource path="res://multiplayer/prefabs/weapons/arsenal/desertEagle/audio/draw.ogg" type="AudioStream" id=5]
+
+
+[sub_resource type="Animation" id=1]
+resource_name = "reload"
+length = 2.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Desert Eagle:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.0211334, -1.40453 ), Vector3( 0, 0.021, 0 ), Vector3( 0, 0.0211334, -1.40453 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Desert Eagle:rotation_degrees:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 45, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Desert Eagle:rotation_degrees:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Desert Eagle:rotation_degrees:z")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2 )
+}
+
+[node name="desert_eagle" instance=ExtResource( 1 )]
+
+[node name="Desert Eagle" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0211334, -1.40453 )
+
+[node name="audio" type="Spatial" parent="." index="1"]
+
+[node name="shoot" type="AudioStreamPlayer3D" parent="audio" index="0"]
+stream = ExtResource( 3 )
+unit_db = -20.0
+
+[node name="empty" type="AudioStreamPlayer3D" parent="audio" index="1"]
+stream = ExtResource( 4 )
+unit_db = -20.0
+
+[node name="draw" type="AudioStreamPlayer3D" parent="audio" index="2"]
+stream = ExtResource( 5 )
+unit_db = -20.0
+
+[node name="reload" type="AudioStreamPlayer3D" parent="audio" index="3"]
+stream = ExtResource( 2 )
+unit_db = -20.0
+
+[node name="barrel" type="Position3D" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, -2.5 )
+
+[node name="anim" type="AnimationPlayer" parent="." index="3"]
+anims/reload = SubResource( 1 )

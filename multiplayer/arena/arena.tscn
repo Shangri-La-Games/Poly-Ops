@@ -1,0 +1,225 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/materials/wall.material" type="Material" id=1]
+[ext_resource path="res://assets/materials/box.material" type="Material" id=2]
+[ext_resource path="res://multiplayer/arena/Arena.cs" type="Script" id=3]
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 100, 100 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 50, 1, 50 )
+
+[sub_resource type="CubeMesh" id=3]
+material = ExtResource( 2 )
+size = Vector3( 10, 10, 10 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 5, 5, 5 )
+
+[sub_resource type="QuadMesh" id=5]
+material = ExtResource( 1 )
+size = Vector2( 100, 10 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 50, 5, 1 )
+
+[node name="arena" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="players" type="Node" parent="."]
+
+[node name="bots" type="Node" parent="."]
+
+[node name="map" type="Node" parent="."]
+
+[node name="lights" type="Node" parent="map"]
+
+[node name="light" type="DirectionalLight" parent="map/lights"]
+transform = Transform( 0.866025, -0.286788, -0.409576, 0, -0.819152, 0.573576, -0.5, -0.496732, -0.709406, 0, 10, 0 )
+light_color = Color( 1, 0.984314, 0.917647, 1 )
+shadow_enabled = true
+shadow_color = Color( 0.2, 0.2, 0.2, 1 )
+
+[node name="ground" type="StaticBody" parent="map" groups=[
+"concrete",
+"walls",
+]]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="mesh" type="MeshInstance" parent="map/ground"]
+mesh = SubResource( 1 )
+material/0 = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="map/ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+shape = SubResource( 2 )
+
+[node name="cube" type="StaticBody" parent="map" groups=[
+"concrete",
+"walls",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4.99566, -10 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="mesh" type="MeshInstance" parent="map/cube"]
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="map/cube"]
+shape = SubResource( 4 )
+
+[node name="cube2" type="StaticBody" parent="map" groups=[
+"concrete",
+"walls",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4.99566, 10 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="mesh" type="MeshInstance" parent="map/cube2"]
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="map/cube2"]
+shape = SubResource( 4 )
+
+[node name="cube3" type="StaticBody" parent="map" groups=[
+"concrete",
+"walls",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4.99566, 10 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="mesh" type="MeshInstance" parent="map/cube3"]
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="map/cube3"]
+shape = SubResource( 4 )
+
+[node name="cube4" type="StaticBody" parent="map" groups=[
+"concrete",
+"walls",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4.99566, -10 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="mesh" type="MeshInstance" parent="map/cube4"]
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="map/cube4"]
+shape = SubResource( 4 )
+
+[node name="wall_n" type="StaticBody" parent="map" groups=[
+"concrete",
+"walls",
+]]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 50, 5, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="mesh" type="MeshInstance" parent="map/wall_n"]
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="collision" type="CollisionShape" parent="map/wall_n"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+shape = SubResource( 6 )
+
+[node name="wall_e" type="StaticBody" parent="map" groups=[
+"concrete",
+"walls",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -50 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="mesh" type="MeshInstance" parent="map/wall_e"]
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="collision" type="CollisionShape" parent="map/wall_e"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+shape = SubResource( 6 )
+
+[node name="wall_s" type="StaticBody" parent="map" groups=[
+"concrete",
+"walls",
+]]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -50, 5, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="mesh" type="MeshInstance" parent="map/wall_s"]
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="collision" type="CollisionShape" parent="map/wall_s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+shape = SubResource( 6 )
+
+[node name="wall_w" type="StaticBody" parent="map" groups=[
+"concrete",
+"walls",
+]]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 5, 50 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="mesh" type="MeshInstance" parent="map/wall_w"]
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="collision" type="CollisionShape" parent="map/wall_w"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+shape = SubResource( 6 )
+
+[node name="spawn" type="Node" parent="."]
+
+[node name="0" type="Position3D" parent="spawn"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.369034, 3.33944, 31.8285 )
+
+[node name="1" type="Position3D" parent="spawn"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30974, 3.33944, 3.16637 )
+
+[node name="2" type="Position3D" parent="spawn"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.0245, 3.33944, -0.276764 )
+
+[node name="3" type="Position3D" parent="spawn"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.4561, 3.33944, 37.2716 )
+
+[node name="4" type="Position3D" parent="spawn"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3739, 3.33944, -36.8103 )
+
+[node name="5" type="Position3D" parent="spawn"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7329, 3.33944, -8.57985 )
+
+[node name="6" type="Position3D" parent="spawn"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.369034, 3.33944, -36.3491 )
+
+[node name="7" type="Position3D" parent="spawn"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.4117, 3.33944, -36.3491 )

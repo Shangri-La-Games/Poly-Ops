@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://multiplayer/prefabs/weapons/effects/splatter/splatter.tres" type="QuadMesh" id=1]
+[ext_resource path="res://multiplayer/prefabs/weapons/effects/splatter/Splatter.cs" type="Script" id=2]
+
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0.0124224, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+lifetime_randomness = 0.3
+emission_shape = 1
+emission_sphere_radius = 0.01
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+flatness = 1.0
+gravity = Vector3( 0, -1, 0 )
+radial_accel = 100.0
+radial_accel_random = 0.93
+angle = 720.0
+angle_random = 1.0
+scale = 5.0
+scale_curve = SubResource( 2 )
+
+[node name="splatter" type="Particles"]
+cast_shadow = 0
+emitting = false
+amount = 10
+lifetime = 0.15
+one_shot = true
+explosiveness = 0.5
+process_material = SubResource( 3 )
+draw_pass_1 = ExtResource( 1 )
+script = ExtResource( 2 )
+timerPath = NodePath("timer")
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+autostart = true

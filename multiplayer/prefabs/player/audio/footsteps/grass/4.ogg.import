@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/4.ogg-4509d2c7921d16fc2a2b13bb4c88c3f8.oggstr"
+
+[deps]
+
+source_file="res://multiplayer/prefabs/player/audio/footsteps/grass/4.ogg"
+dest_files=[ "res://.import/4.ogg-4509d2c7921d16fc2a2b13bb4c88c3f8.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

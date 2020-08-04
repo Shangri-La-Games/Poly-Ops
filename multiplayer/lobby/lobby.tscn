@@ -1,0 +1,294 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://multiplayer/lobby/Lobby.cs" type="Script" id=1]
+[ext_resource path="res://assets/fonts/font.tres" type="DynamicFont" id=2]
+
+[node name="lobby" type="Control"]
+anchor_left = 0.00047195
+anchor_right = 1.00047
+anchor_bottom = 1.0
+margin_left = -0.158577
+margin_top = 1.66389
+margin_right = -0.158569
+margin_bottom = 1.66388
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="connect" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -170.0
+margin_top = -250.0
+margin_right = 170.0
+margin_bottom = 250.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="v_container" type="VBoxContainer" parent="connect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="label_waiting" type="Label" parent="connect/v_container"]
+margin_right = 300.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Awating Players"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="h_separator_0" type="HSeparator" parent="connect/v_container"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0 )
+margin_top = 27.0
+margin_right = 300.0
+margin_bottom = 31.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="list_player" type="ItemList" parent="connect/v_container"]
+margin_top = 35.0
+margin_right = 300.0
+margin_bottom = 398.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="h_separator_1" type="HSeparator" parent="connect/v_container"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0 )
+margin_top = 402.0
+margin_right = 300.0
+margin_bottom = 406.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="btn_start" type="Button" parent="connect/v_container"]
+margin_top = 410.0
+margin_right = 300.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Start"
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="players" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = -160.0
+margin_right = 250.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 500, 320 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="v_container" type="VBoxContainer" parent="players"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 19.5167
+margin_top = 20.0
+margin_right = -20.4833
+margin_bottom = -20.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="label_multiplayer" type="Label" parent="players/v_container"]
+margin_right = 460.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Multiplayer"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="h_separator" type="HSeparator" parent="players/v_container"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0 )
+margin_top = 27.0
+margin_right = 460.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="name" type="Label" parent="players/v_container"]
+margin_top = 35.0
+margin_right = 460.0
+margin_bottom = 58.0
+custom_fonts/font = ExtResource( 2 )
+text = "Nick Name"
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="edit_name" type="LineEdit" parent="players/v_container"]
+margin_top = 62.0
+margin_right = 460.0
+margin_bottom = 112.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Godot"
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="h_separator_0" type="HSeparator" parent="players/v_container"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0 )
+margin_top = 116.0
+margin_right = 460.0
+margin_bottom = 120.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="ip" type="Label" parent="players/v_container"]
+margin_top = 124.0
+margin_right = 460.0
+margin_bottom = 147.0
+custom_fonts/font = ExtResource( 2 )
+text = "IP Address"
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="edit_ip" type="LineEdit" parent="players/v_container"]
+margin_top = 151.0
+margin_right = 460.0
+margin_bottom = 201.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "127.0.0.1"
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="h_separator_1" type="HSeparator" parent="players/v_container"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0 )
+margin_top = 205.0
+margin_right = 460.0
+margin_bottom = 226.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="h_container" type="HBoxContainer" parent="players/v_container"]
+margin_top = 230.0
+margin_right = 460.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="btn_host" type="Button" parent="players/v_container/h_container"]
+margin_right = 228.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Host"
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="btn_join" type="Button" parent="players/v_container/h_container"]
+margin_left = 232.0
+margin_right = 460.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Join"
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="dialog" type="AcceptDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -50.0
+margin_right = 100.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 200, 100 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}

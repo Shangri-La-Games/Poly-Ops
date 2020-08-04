@@ -1,0 +1,7 @@
+{
+    "name": "ak47",
+    "magSize": 9,
+    "damage": 10,
+    "fireRatePerMinute": 50,
+    "rangeInMeters": 201.17
+}

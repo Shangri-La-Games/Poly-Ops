@@ -1,0 +1,14 @@
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://assets/materials/toon_pass.tres" type="Material" id=1]
+
+[resource]
+next_pass = ExtResource( 1 )
+params_diffuse_mode = 4
+params_specular_mode = 3
+albedo_color = Color( 1, 0, 0.819608, 1 )
+emission_enabled = true
+emission = Color( 1, 0, 0.5625, 1 )
+emission_energy = 1.5
+emission_operator = 0
+emission_on_uv2 = false

@@ -1,0 +1,287 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://multiplayer/prefabs/player/audio/die/0.ogg" type="AudioStream" id=1]
+[ext_resource path="res://multiplayer/prefabs/player/audio/footsteps/grass/0.ogg" type="AudioStream" id=2]
+[ext_resource path="res://multiplayer/prefabs/player/audio/footsteps/grass/4.ogg" type="AudioStream" id=3]
+[ext_resource path="res://multiplayer/prefabs/player/audio/footsteps/concrete/3.ogg" type="AudioStream" id=4]
+[ext_resource path="res://multiplayer/prefabs/player/Footsteps.cs" type="Script" id=5]
+[ext_resource path="res://multiplayer/prefabs/player/audio/footsteps/concrete/2.ogg" type="AudioStream" id=6]
+[ext_resource path="res://multiplayer/prefabs/player/audio/footsteps/grass/3.ogg" type="AudioStream" id=7]
+[ext_resource path="res://multiplayer/prefabs/player/audio/footsteps/concrete/6.ogg" type="AudioStream" id=8]
+[ext_resource path="res://multiplayer/prefabs/player/audio/footsteps/grass/5.ogg" type="AudioStream" id=9]
+[ext_resource path="res://multiplayer/prefabs/player/audio/footsteps/grass/1.ogg" type="AudioStream" id=10]
+[ext_resource path="res://multiplayer/prefabs/player/audio/footsteps/concrete/4.ogg" type="AudioStream" id=11]
+[ext_resource path="res://multiplayer/prefabs/player/audio/footsteps/concrete/5.ogg" type="AudioStream" id=12]
+[ext_resource path="res://multiplayer/prefabs/player/ui/stats.tscn" type="PackedScene" id=13]
+[ext_resource path="res://multiplayer/prefabs/player/audio/footsteps/concrete/0.ogg" type="AudioStream" id=14]
+[ext_resource path="res://multiplayer/prefabs/player/audio/footsteps/concrete/1.ogg" type="AudioStream" id=15]
+[ext_resource path="res://multiplayer/prefabs/player/audio/jump/0.ogg" type="AudioStream" id=16]
+[ext_resource path="res://multiplayer/prefabs/player/Weapons.cs" type="Script" id=17]
+[ext_resource path="res://multiplayer/prefabs/player/audio/fall/0.ogg" type="AudioStream" id=18]
+[ext_resource path="res://multiplayer/prefabs/weapons/arsenal/ak47/ak47.tscn" type="PackedScene" id=19]
+[ext_resource path="res://multiplayer/prefabs/weapons/arsenal/desertEagle/desert_eagle.tscn" type="PackedScene" id=20]
+[ext_resource path="res://multiplayer/prefabs/player/audio/footsteps/grass/2.ogg" type="AudioStream" id=21]
+[ext_resource path="res://multiplayer/prefabs/player/Player.cs" type="Script" id=22]
+[ext_resource path="res://multiplayer/prefabs/player/material/skin.tres" type="Material" id=23]
+[ext_resource path="res://multiplayer/prefabs/player/ui/pause.tscn" type="PackedScene" id=24]
+[ext_resource path="res://multiplayer/prefabs/player/HUD.cs" type="Script" id=25]
+
+[sub_resource type="SphereShape" id=1]
+radius = 0.5
+
+[sub_resource type="SphereMesh" id=2]
+radius = 0.5
+height = 1.0
+
+[sub_resource type="CapsuleMesh" id=3]
+radius = 0.2
+mid_height = 0.25
+rings = 4
+
+[sub_resource type="CylinderShape" id=4]
+radius = 0.3
+
+[sub_resource type="CylinderMesh" id=5]
+top_radius = 0.2
+bottom_radius = 0.5
+radial_segments = 8
+
+[sub_resource type="SphereShape" id=6]
+radius = 0.6
+
+[sub_resource type="CapsuleShape" id=7]
+radius = 0.5
+
+[node name="player" type="KinematicBody"]
+script = ExtResource( 22 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+headPath = NodePath("head")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource( 25 )
+
+[node name="crosshair" type="Control" parent="HUD"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -25.0
+margin_top = -25.0
+margin_right = 25.0
+margin_bottom = 25.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="N" type="ColorRect" parent="HUD/crosshair"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -0.5
+margin_right = 0.5
+margin_bottom = 15.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="S" type="ColorRect" parent="HUD/crosshair"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -0.5
+margin_top = -15.0
+margin_right = 0.5
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="W" type="ColorRect" parent="HUD/crosshair"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -15.0
+margin_top = -0.5
+margin_bottom = 0.5
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="E" type="ColorRect" parent="HUD/crosshair"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -0.5
+margin_right = 15.0
+margin_bottom = 0.5
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="stats" parent="HUD" instance=ExtResource( 13 )]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="pause" parent="HUD" instance=ExtResource( 24 )]
+visible = false
+
+[node name="head" type="CollisionShape" parent="." groups=[
+"head",
+"hitbox",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="head" type="RayCast" parent="head"]
+enabled = true
+cast_to = Vector3( 0, 0, -20 )
+collide_with_areas = true
+
+[node name="mesh" type="MeshInstance" parent="head/head"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 23 )
+
+[node name="eyes" type="MeshInstance" parent="head/head"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -0.35 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="body" type="CollisionShape" parent="." groups=[
+"body",
+"hitbox",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+shape = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="mesh" type="MeshInstance" parent="body"]
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="feet" type="RayCast" parent="body"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
+enabled = true
+
+[node name="weapons" type="Spatial" parent="."]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.198, 2.5, 0 )
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_editor_description_": ""
+}
+PlayerNode = NodePath("..")
+headPath = NodePath("../head")
+crosshairPath = NodePath("../HUD/crosshair")
+
+[node name="desert_eagle" parent="weapons" instance=ExtResource( 20 )]
+transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 1.5, -1.5, -4 )
+
+[node name="ak47" parent="weapons" instance=ExtResource( 19 )]
+transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 1.5, -1.5, -4 )
+
+[node name="audio" type="Spatial" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="footsteps" type="Spatial" parent="audio"]
+script = ExtResource( 5 )
+feetNode = NodePath("../../body/feet")
+playerNode = NodePath("../..")
+
+[node name="grass" type="Spatial" parent="audio/footsteps"]
+
+[node name="0" type="AudioStreamPlayer3D" parent="audio/footsteps/grass"]
+stream = ExtResource( 2 )
+
+[node name="1" type="AudioStreamPlayer3D" parent="audio/footsteps/grass"]
+stream = ExtResource( 10 )
+
+[node name="2" type="AudioStreamPlayer3D" parent="audio/footsteps/grass"]
+stream = ExtResource( 21 )
+
+[node name="3" type="AudioStreamPlayer3D" parent="audio/footsteps/grass"]
+stream = ExtResource( 7 )
+
+[node name="4" type="AudioStreamPlayer3D" parent="audio/footsteps/grass"]
+stream = ExtResource( 3 )
+
+[node name="5" type="AudioStreamPlayer3D" parent="audio/footsteps/grass"]
+stream = ExtResource( 9 )
+
+[node name="concrete" type="Spatial" parent="audio/footsteps"]
+
+[node name="0" type="AudioStreamPlayer3D" parent="audio/footsteps/concrete"]
+stream = ExtResource( 14 )
+
+[node name="1" type="AudioStreamPlayer3D" parent="audio/footsteps/concrete"]
+stream = ExtResource( 15 )
+
+[node name="2" type="AudioStreamPlayer3D" parent="audio/footsteps/concrete"]
+stream = ExtResource( 6 )
+
+[node name="3" type="AudioStreamPlayer3D" parent="audio/footsteps/concrete"]
+stream = ExtResource( 4 )
+
+[node name="4" type="AudioStreamPlayer3D" parent="audio/footsteps/concrete"]
+stream = ExtResource( 11 )
+
+[node name="5" type="AudioStreamPlayer3D" parent="audio/footsteps/concrete"]
+stream = ExtResource( 12 )
+
+[node name="6" type="AudioStreamPlayer3D" parent="audio/footsteps/concrete"]
+stream = ExtResource( 8 )
+
+[node name="die" type="Spatial" parent="audio"]
+
+[node name="0" type="AudioStreamPlayer3D" parent="audio/die"]
+stream = ExtResource( 1 )
+
+[node name="fall" type="Spatial" parent="audio"]
+
+[node name="0" type="AudioStreamPlayer3D" parent="audio/fall"]
+stream = ExtResource( 18 )
+
+[node name="jump" type="Spatial" parent="audio"]
+
+[node name="0" type="AudioStreamPlayer3D" parent="audio/jump"]
+stream = ExtResource( 16 )
+
+[node name="hitbox_head" type="Area" parent="." groups=[
+"head",
+"hitbox",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0 )
+
+[node name="collision" type="CollisionShape" parent="hitbox_head"]
+shape = SubResource( 6 )
+
+[node name="hitbox_body" type="Area" parent="." groups=[
+"body",
+"hitbox",
+]]
+
+[node name="collision" type="CollisionShape" parent="hitbox_body"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 1, 0 )
+shape = SubResource( 7 )

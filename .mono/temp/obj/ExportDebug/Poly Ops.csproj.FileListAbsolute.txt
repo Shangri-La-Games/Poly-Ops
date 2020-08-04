@@ -1,0 +1,6 @@
+/Users/sanjaygubaju/Documents/Projects/Shangri-La/Games/PolyOps/.mono/temp/bin/ExportDebug/Poly Ops.dll
+/Users/sanjaygubaju/Documents/Projects/Shangri-La/Games/PolyOps/.mono/temp/bin/ExportDebug/Poly Ops.pdb
+/Users/sanjaygubaju/Documents/Projects/Shangri-La/Games/PolyOps/.mono/temp/obj/ExportDebug/Poly Ops.csprojAssemblyReference.cache
+/Users/sanjaygubaju/Documents/Projects/Shangri-La/Games/PolyOps/.mono/temp/obj/ExportDebug/Poly Ops.csproj.CoreCompileInputs.cache
+/Users/sanjaygubaju/Documents/Projects/Shangri-La/Games/PolyOps/.mono/temp/obj/ExportDebug/Poly Ops.dll
+/Users/sanjaygubaju/Documents/Projects/Shangri-La/Games/PolyOps/.mono/temp/obj/ExportDebug/Poly Ops.pdb

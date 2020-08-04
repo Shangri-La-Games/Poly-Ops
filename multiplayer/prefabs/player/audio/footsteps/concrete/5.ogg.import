@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/5.ogg-ceff156baea431828abaceb0a33a1409.oggstr"
+
+[deps]
+
+source_file="res://multiplayer/prefabs/player/audio/footsteps/concrete/5.ogg"
+dest_files=[ "res://.import/5.ogg-ceff156baea431828abaceb0a33a1409.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

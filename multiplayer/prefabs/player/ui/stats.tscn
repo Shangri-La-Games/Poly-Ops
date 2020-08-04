@@ -1,0 +1,167 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/fonts/font.tres" type="DynamicFont" id=1]
+
+[node name="stats" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 25.0
+margin_top = 25.0
+margin_right = -25.0
+margin_bottom = -25.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="weapon" type="Panel" parent="."]
+self_modulate = Color( 1, 1, 1, 0.392157 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -120.0
+margin_top = -60.0
+rect_min_size = Vector2( 120, 70 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="container" type="VBoxContainer" parent="weapon"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label_name" type="Label" parent="weapon/container"]
+margin_right = 104.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Desert Eagle"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="container" type="HBoxContainer" parent="weapon/container"]
+margin_top = 29.0
+margin_right = 104.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="label_ammo" type="Label" parent="weapon/container/container"]
+margin_right = 46.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 1, 1 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "00"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="separator" type="VSeparator" parent="weapon/container/container"]
+margin_left = 50.0
+margin_right = 54.0
+margin_bottom = 25.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="label_bullets" type="Label" parent="weapon/container/container"]
+margin_left = 58.0
+margin_right = 104.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 1, 1 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "00"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="health" type="Panel" parent="."]
+self_modulate = Color( 1, 1, 1, 0.392157 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -60.0
+margin_right = 120.0
+rect_min_size = Vector2( 120, 70 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="container" type="HBoxContainer" parent="health"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = 6.0
+margin_right = -6.0
+margin_bottom = -6.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="label_health" type="Label" parent="health/container"]
+margin_right = 108.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 1, 1 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "100"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="label_user" type="Label" parent="."]
+margin_right = 61.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 1 )
+text = "1234567"
+__meta__ = {
+"_edit_use_anchors_": false
+}

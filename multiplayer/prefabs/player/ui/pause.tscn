@@ -1,0 +1,105 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/fonts/font.tres" type="DynamicFont" id=2]
+
+[node name="pause" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="panel" type="Panel" parent="."]
+self_modulate = Color( 1, 1, 1, 0.392157 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="v_container" type="VBoxContainer" parent="panel"]
+self_modulate = Color( 1, 1, 1, 0.392157 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -170.0
+margin_top = -100.0
+margin_right = 170.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 340, 200 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="label_pause" type="Label" parent="panel/v_container"]
+margin_right = 340.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Game Paused"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="h_separator_0" type="HSeparator" parent="panel/v_container"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0 )
+margin_top = 27.0
+margin_right = 340.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="btn_resume" type="Button" parent="panel/v_container"]
+margin_top = 88.0
+margin_right = 340.0
+margin_bottom = 138.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Resume"
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="h_separator_1" type="HSeparator" parent="panel/v_container"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0 )
+margin_top = 142.0
+margin_right = 340.0
+margin_bottom = 146.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="btn_quit" type="Button" parent="panel/v_container"]
+margin_top = 150.0
+margin_right = 340.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Quit"
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/reload.ogg-251720b7860265a744594b596ce61889.oggstr"
+
+[deps]
+
+source_file="res://multiplayer/prefabs/weapons/arsenal/desertEagle/audio/reload.ogg"
+dest_files=[ "res://.import/reload.ogg-251720b7860265a744594b596ce61889.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
