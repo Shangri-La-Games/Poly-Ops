@@ -176,15 +176,15 @@ public class Weapon : Spatial
 		{
 			reloadWeapon = true;
 
+			// Hide crosshair
+			crosshair.Hide();
+
 			// Audio.
 			AudioStreamPlayer3D reload = ((AudioStreamPlayer3D)audioNode.GetNode("reload"));
 			reload.PitchScale = (float)GD.RandRange(0.9, 1.1);
 			reload.Play(.30f);
 
 			animation.Play("reload");
-
-			// Hide crosshair
-			crosshair.Visible = false;
 		}
 	}
 	bool reloadWeapon = false;
@@ -208,8 +208,7 @@ public class Weapon : Spatial
 
 			// Notify ammo update
 			GameState.instance.EmitSignal(nameof(GameState.updateWeapon), weaponName, bullets, ammo);
-
-			crosshair.Visible = true;
+			crosshair.Show();
 		}
 	}
 	public void focus(int input, float delta)
@@ -222,8 +221,6 @@ public class Weapon : Spatial
 				 Mathf.Lerp(-weaponNode.Translation.y, -0.6f, lerpSpeed * delta),
 				 Mathf.Lerp(-weaponNode.Translation.y, -5f, lerpSpeed * delta)
 			 );
-
-			crosshair.RectScale = crosshair.RectScale.LinearInterpolate(new Vector2(.5f, .5f), delta);
 		}
 		else
 		{

@@ -145,6 +145,7 @@ public class Player : KinematicBody
 		}
 	}
 
+	private bool wasJumping = false;
 	// Handle player jump
 	private void jump(float delta)
 	{
@@ -152,13 +153,13 @@ public class Player : KinematicBody
 		{
 			if (this.IsOnFloor())
 			{
-				velocity.y = jumpHeight;
+				velocity.y = jumpHeight; wasJumping = true;
 
 				AudioStreamPlayer3D jump = ((AudioStreamPlayer3D)GetNode("audio/jump/0"));
 				if (!jump.Playing)
 				{
 					jump.PitchScale = (float)GD.RandRange(0.9, 1.1);
-					jump.Play();
+					jump.Play(0);
 				}
 			}
 		}

@@ -121,8 +121,9 @@ self_modulate = Color( 1, 1, 1, 0.392157 )
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -60.0
-margin_right = 120.0
-rect_min_size = Vector2( 120, 70 )
+margin_right = 70.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 70, 70 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true,
@@ -143,7 +144,7 @@ __meta__ = {
 }
 
 [node name="label_health" type="Label" parent="health/container"]
-margin_right = 108.0
+margin_right = 58.0
 margin_bottom = 58.0
 rect_min_size = Vector2( 1, 1 )
 size_flags_horizontal = 3
