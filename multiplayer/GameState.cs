@@ -21,6 +21,10 @@ public class GameState : Node
 
     public static GameState Instance { get { return instance; } }
 
+    // Change scene
+    PackedScene arenaScene = (PackedScene)ResourceLoader.Load("res://multiplayer/arena/arena.tscn");
+    public Arena arena;
+
     GameState() { instance = this; }
 
     public Node GetMainNode()
@@ -40,6 +44,7 @@ public class GameState : Node
         GetTree().Connect("connection_failed", this, "serverConnectionFailed");
         GetTree().Connect("server_disconnected", this, "serverDisconnected");
     }
+
     public void generateName() { playerName = "Hello"; }
     public List<String> getPlayerList() { return new List<String>(players.Values); }
     public String getPlayerName() { return playerName; }
@@ -100,9 +105,8 @@ public class GameState : Node
     [Remote]
     public void preStart(Dictionary<int, int> spawnPoints)
     {
-        // Change scene
-        PackedScene arenaScene = (PackedScene)ResourceLoader.Load("res://multiplayer/arena/arena.tscn");
-        Arena arena = (Arena)arenaScene.Instance();
+        // Load map
+        arena = (Arena)arenaScene.Instance();
 
         // Add arena
         GetTree().Root.AddChild(arena);
@@ -122,6 +126,7 @@ public class GameState : Node
             postStart();
         }
     }
+
     public void startGame()
     {
         if (!GetTree().IsNetworkServer()) { throw new Exception("Not a server"); }
@@ -205,5 +210,9 @@ public class GameState : Node
     {
         players.Remove(networkId);
         EmitSignal("playerUpdated");
+
+        // Remove player from arena
+        if (arena != null) { arena.removePlayer(networkId); }
+
     }
 }
