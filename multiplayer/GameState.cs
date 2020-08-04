@@ -11,6 +11,7 @@ public class GameState : Node
     private String playerName;
     [Signal] public delegate void mouseCaptured();
     [Signal] public delegate void takeDamage(int peerId, int damage);
+    [Signal] public delegate void updateWeapon(String weaponName, int bullets, int ammo);
     [Signal] public delegate void connectionSuccessful();
     [Signal] public delegate void connectionFailed();
     [Signal] public delegate void playerUpdated();

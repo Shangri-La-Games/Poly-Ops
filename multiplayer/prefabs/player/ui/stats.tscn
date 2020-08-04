@@ -30,7 +30,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="container" type="VBoxContainer" parent="weapon"]
+[node name="v_container" type="VBoxContainer" parent="weapon"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
@@ -43,7 +43,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="label_name" type="Label" parent="weapon/container"]
+[node name="label_name" type="Label" parent="weapon/v_container"]
 margin_right = 104.0
 margin_bottom = 25.0
 size_flags_horizontal = 3
@@ -59,7 +59,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="container" type="HBoxContainer" parent="weapon/container"]
+[node name="h_container" type="HBoxContainer" parent="weapon/v_container"]
+anchor_left = -0.00961538
+anchor_right = -0.00961538
 margin_top = 29.0
 margin_right = 104.0
 margin_bottom = 54.0
@@ -70,7 +72,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="label_ammo" type="Label" parent="weapon/container/container"]
+[node name="label_bullets" type="Label" parent="weapon/v_container/h_container"]
 margin_right = 46.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 1, 1 )
@@ -87,7 +89,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="separator" type="VSeparator" parent="weapon/container/container"]
+[node name="separator" type="VSeparator" parent="weapon/v_container/h_container"]
 margin_left = 50.0
 margin_right = 54.0
 margin_bottom = 25.0
@@ -96,7 +98,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="label_bullets" type="Label" parent="weapon/container/container"]
+[node name="label_ammo" type="Label" parent="weapon/v_container/h_container"]
 margin_left = 58.0
 margin_right = 104.0
 margin_bottom = 25.0
