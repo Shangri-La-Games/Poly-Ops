@@ -1,2 +1,0 @@
-﻿49692
-/Applications/Godot_mono 3.2.2.app/Contents/MacOS/Godot
